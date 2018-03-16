@@ -2,12 +2,6 @@ body {
     color: #777;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-
 #layout,
 #menu,
 .menu-link {
@@ -34,9 +28,10 @@ body {
     }
 
 .content {
-    margin: 0 auto;
+    margin: 0;
     padding: 0 2em;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1024px;
     margin-bottom: 50px;
     line-height: 1.6em;
 }
@@ -200,10 +195,22 @@ Hides the menu at `48em`
 
 }
 
-#Calculator form input[disabled=disabled]{
-    background: lightgray;
+#Calculator form input[disabled=disabled],
+#Calculator form input[disabled]{
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    height: auto;
+    overflow: visible;
+    box-sizing: border-box;
 }
 
+#Calculator form fieldset {
+    border: 0;
+}
 
 #Calculator form fieldset:not(:last-of-type){
     float: left;
