@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>T1D Calculator</title>
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 <link rel="stylesheet" href="t1dc.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,14 +20,14 @@
         </a>
     
         <div id="menu">
-            <div class="pure-menu">
-                <a class="pure-menu-heading" href="#">T1D Calc</a>
+            <div class="inner-menu">
+                <a class="menu-heading" href="#">T1D Calc</a>
     
-                <ul class="pure-menu-list">
-                    <li class="pure-menu-item  pure-menu-selected"><a href="#Calculator" class="pure-menu-link">Calculator</a></li>
-                    <li class="pure-menu-item"><a href="#Log" class="pure-menu-link">Log</a></li>
+                <ul class="menu-list">
+                    <li class="menu-item  menu-selected"><a href="#Calculator" class="menu-link">Calculator</a></li>
+                    <li class="menu-item"><a href="#Log" class="menu-link">Log</a></li>
     
-                    <li class="pure-menu-item"><a href="#Settings" class="pure-menu-link">Settings</a></li>
+                    <li class="menu-item"><a href="#Settings" class="menu-link">Settings</a></li>
     
                     
                 </ul>
@@ -42,34 +41,65 @@
             </div>
     
             <div class="content">
-                <form method="post" id="BolusCalculator">
-                     <fieldset id="CarbBolus">
-                    <legend>Carb Bolus </legend>
-                        <input type="text" id="carbIntake"> / <input type="text" id="CarbRatio" value="30" disabled="disabled"> = <span id="CarbBolusTotal">0</span>
-                        <button id="buttonCalcCarb" class="button">Calculate</button>
-                     </fieldset>
+                <form method="post" id="bolus-calculator">
+                    <div id="number-input"> 
+                        
+                        <div id="carb-intake-input">
+                        <h3>Carb Intake</h3>
+                        <input type="number" id="carb-intake" step="0.01" value="0">
+                        </div>
 
-                     <fieldset id="CarbBolus">
-                        <legend>Correction Bolus</legend> 
-                        <input type="text" id="BGL" value="0"> - <input type="text" id="correctionTarget" value="130" disabled="disabled"> =
-                        <br/>
-                        <input type="text" id="correctionAmount" value="0" disabled="disabled"> / <input type="text" id="correctionFactor" value="160" disabled="disabled"> = 
-                        <span id="correctionBolusTotal">0</span>
-                        <button id="buttonCalcCorrection" class="button">Calculate</button>
+
+                        <div id="blood-glucose-input">
+                        <h3>Blood Glucose Level</h3>
+                        <input type="number" id="blood-glucose-level" step="0.01" value="0">
+                        </div>
+
+
+
+                        <!--  Hidden Calculator Inputs -->
+                            <!-- Carbs -->
+                            <input type="hidden" id="carb-ratio" value="30">  
+                            <input type="hidden" id="carb-bolus-total" value="0">  
+                            <!-- Blood Glucose -->
+                            <input type="hidden" id="correction-target" value="130">  
+                            <input type="hidden" id="correction-amount" value="0">  
+                            <input type="hidden" id="correction-factor" value="160">  
+
+                        <!-- End Hidden Calculator Inputs -->
+                    </div>
+                    <hr/>
+                   
+
+                   
+
+                    <fieldset id="insulin-bolus">
+                        <legend>Insulin Bolus</legend>
+                        <span id="insulin-bolus-total">0</span>
+                        <button id="calculate-insulin-bolus" class="button">Calculate</button>
+                        <button id="log-insulin-bolus-results" disabled>Log Insulin Bolus</button>
+
+                        <hr/>
                     </fieldset>
 
-                    <fieldset id="insulinBolus">
-                        <legend>Insulin Bolus</legend>
-                        <span id="insulinBolusTotal">0</span>
-                        <button id="logInsulinBolusResults">Log Insulin Bolus</button>
+                    <fieldset id="carb-bolus">
+                            <legend>Carb Bolus</legend>
+                                <span id="carb-intake-display">0</span> / <span id="carb-ratio-display">0</span> = <span id="carb-bolus-total-display">0</span>
+                    </fieldset>
+
+                    <fieldset id="correction-bolus">
+                            <legend>Correction Bolus</legend> 
+                            <span id="blood-glucose-level-display">0</span> - <span id="correction-target-display">0</span>  = <span id="correction-amount-display">0</span>  / <span id="correction-factor-display">0</span> = 
+                            <span id="correction-bolus-total">0</span>
                     </fieldset>
                 </form>
-                
+              
             </div>
         </section>
-    
-
+        
+      
         <section id="Log">
+                 
             <div class="header">
                 <h1>Log</h1>
             </div>
