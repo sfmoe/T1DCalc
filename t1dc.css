@@ -1,6 +1,13 @@
-body {
+body,
+input {
     color: #777;
 }
+
+
+body {
+    background: #eee;
+}
+
 
 #layout,
 #menu,
@@ -30,8 +37,6 @@ body {
 .content {
     margin: 0;
     padding: 0 2em;
-    width: 100%;
-    max-width: 1024px;
     margin-bottom: 50px;
     line-height: 1.6em;
 }
@@ -47,6 +52,7 @@ body {
     background: #191818;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    color: white;
 }
 
     #menu a {
@@ -56,44 +62,54 @@ body {
     }
 
 
-     #menu .pure-menu,
-     #menu .pure-menu ul {
+   
+     #menu ul {
         border: none;
         background: transparent;
+        list-style: none;
     }
 
 
-    #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-divided {
+   
+    #menu .menu-item-divided {
         border-top: 1px solid #333;
     }
 
-        #menu .pure-menu li a:hover,
-        #menu .pure-menu li a:focus {
+        #menu li a:hover,
+        #menu li a:focus {
             background: #333;
         }
 
 
-    #menu .pure-menu-selected,
-    #menu .pure-menu-heading {
+    #menu .menu-selected,
+    #menu .menu-heading {
         background: #1f8dd6;
-    }
+    }   
   
-        #menu .pure-menu-selected a {
+        #menu .menu-selected a {
             color: #fff;
         }
 
 
-    #menu .pure-menu-heading {
+    #menu .menu-heading {
         font-size: 110%;
         color: #fff;
         margin: 0;
+        max-width: 150px;
     }
-
+    #menu .inner-menu > a,
+    #menu .inner-menu > ul  {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    #menu .inner-menu > ul{
+    padding-left: 0;}
 /* -- Dynamic Button For Responsive Menu ---*/
 
 
-.menu-link {
+#layout > .menu-link {
     position: fixed;
     display: block; /* show this only on small screens */
     top: 0;
@@ -107,35 +123,112 @@ body {
     padding: 2.1em 1.6em;
 }
 
-    .menu-link:hover,
+#layout >  .menu-link:hover,
     .menu-link:focus {
         background: #000;
     }
 
-    .menu-link span {
+    #layout > .menu-link span {
         position: relative;
         display: block;
     }
 
-    .menu-link span,
-    .menu-link span:before,
-    .menu-link span:after {
+    #layout > .menu-link span,
+    #layout > .menu-link span:before,
+    #layout > .menu-link span:after {
         background-color: #fff;
         width: 100%;
         height: 0.2em;
     }
 
-        .menu-link span:before,
-        .menu-link span:after {
+    #layout > .menu-link span:before,
+    #layout > .menu-link span:after {
             position: absolute;
             margin-top: -0.6em;
             content: " ";
         }
 
-        .menu-link span:after {
+    #layout > .menu-link span:after {
             margin-top: 0.6em;
         }
 
+#main {
+    max-width : 1024px;
+}
+
+/*calculator styles*/
+
+#Calculator form{
+    display: block;
+    width: 100%;
+}
+#Calculator form input[type=number] {
+    padding: 5px;
+    width: 50%;
+    height: 50px;
+    font-size: 1.5em;
+    border: 0;
+    background: transparent;
+    -moz-appearance: textfield;
+
+}
+
+#Calculator form input[type=number]::-webkit-inner-spin-button, 
+#Calculator form input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    appearance: none;
+}
+#Calculator form fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+#Calculator form fieldset legend {
+    font-weight: bold;
+
+}
+#Calculator form fieldset:not(:first-of-type){
+    float: left;
+    width: 50%;
+}
+#Calculator form fieldset:first-of-type{
+    clear:both;
+}
+
+
+#BolusCalculator button {
+    display: block;
+    clear:both;
+}
+
+
+#number-input > div {
+    display: block;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin-bottom: 10px;    
+}
+
+#number-input > div > h3 {
+    float: right;
+}
+
+button {
+    display: inline-block;
+    border: 0;
+    background: linear-gradient(0, #3ba93d, #27842a);
+    color: white;
+    padding: 20px;
+    border-radius: 10%;
+}
+
+
+
+section#Log {
+    border-top: 1px solid #000;
+}
 
 /*
 Hides the menu at `48em`
@@ -166,7 +259,8 @@ Hides the menu at `48em`
         left: 150px;
     }
 
- 
+
+
 }
 
 @media (max-width: 48em) {
@@ -176,56 +270,11 @@ Hides the menu at `48em`
         left: 150px;
     }
 
-       #main {
+       #main section#Calculator {
         padding-top: 50px;
     }
-}
+    .content {
+        padding: 0;
+    }
 
-/*calculator styles*/
-
-
-#Calculator form input[type=text] {
-    padding: 5px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 1.5em;
-    border: 1px solid gray;
-    margin: 4px;
-
-}
-
-#Calculator form input[disabled=disabled],
-#Calculator form input[disabled]{
-    display: inline-block;
-    background: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    width: 40px;
-    height: auto;
-    overflow: visible;
-    box-sizing: border-box;
-}
-
-#Calculator form fieldset {
-    border: 0;
-}
-
-#Calculator form fieldset:not(:last-of-type){
-    float: left;
-    width: 40%;
-    min-height: 200px;
-}
-#Calculator form fieldset:last-of-type{
-    clear:both;
-}
-
-#Calculator form #carbIntake {
-    width: 75px;
-}
-
-#BolusCalculator button {
-    display: block;
-    clear:both;
 }
