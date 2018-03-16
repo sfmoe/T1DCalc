@@ -164,7 +164,7 @@ body {
 }
 #Calculator form input[type=number] {
     padding: 5px;
-    width: 50%;
+    width: 30%;
     height: 50px;
     font-size: 1.5em;
     border: 0;
