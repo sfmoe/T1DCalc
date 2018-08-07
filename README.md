@@ -1,8 +1,8 @@
 # T1DCalc
-Building a calculator and log that our family can use.
+Building a type 1 diabetes calculator and log that our family can use.
 
 ## Completed:
-Basic Calculator in Javascript.
+Basic Type 1 Diabetes Calculator in Javascript.
 
 ## RoadMap / ToDo:
 
