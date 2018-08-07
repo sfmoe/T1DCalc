@@ -8,6 +8,11 @@ body {
     background: #eee;
 }
 
+input::selection,
+input::-moz-selection {
+    background: #27842a; 
+  }
+
 
 #layout,
 #menu,
@@ -36,9 +41,12 @@ body {
 
 .content {
     margin: 0;
-    padding: 0 2em;
+    padding: 0;
     margin-bottom: 50px;
     line-height: 1.6em;
+    width: 100%;
+    height: auto;
+    overflow: auto;
 }
 
 #menu {
@@ -158,11 +166,11 @@ body {
 
 /*calculator styles*/
 
-#Calculator form{
+#Calculator div#bolus-calculator{
     display: block;
     width: 100%;
 }
-#Calculator form input[type=number] {
+#Calculator div#bolus-calculator input[type=number] {
     padding: 5px;
     width: 30%;
     height: 50px;
@@ -173,25 +181,25 @@ body {
 
 }
 
-#Calculator form input[type=number]::-webkit-inner-spin-button, 
-#Calculator form input[type=number]::-webkit-outer-spin-button { 
+#Calculator div#bolus-calculator input[type=number]::-webkit-inner-spin-button, 
+#Calculator div#bolus-calculator input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
     appearance: none;
 }
-#Calculator form fieldset {
+#Calculator div#bolus-calculator fieldset {
     border: 0;
     margin: 0;
     padding: 0;
 }
-#Calculator form fieldset legend {
+#Calculator div#bolus-calculator fieldset legend {
     font-weight: bold;
 
 }
-#Calculator form fieldset:not(:first-of-type){
+#Calculator div#bolus-calculator fieldset:not(:first-of-type){
     float: left;
     width: 50%;
 }
-#Calculator form fieldset:first-of-type{
+#Calculator div#bolus-calculator fieldset:first-of-type{
     clear:both;
 }
 
@@ -211,8 +219,11 @@ body {
     margin-bottom: 10px;    
 }
 
-#number-input > div > h3 {
+#number-input > div > label {
+    display: block;
     float: right;
+    font-size: 1.5em;
+    line-height: 2.6em;
 }
 .button-container{
     margin-top: 20px;
@@ -252,50 +263,68 @@ section#Log {
     border-top: 1px solid #000;
 }
 
-/*
-Hides the menu at `48em`
-*/
-@media (min-width: 48em) {
 
-    .header,
-    .content {
-        padding-left: 2em;
-        padding-right: 2em;
-    }
+section#Log .content  ul{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    overflow: auto;
+}
 
-    #layout {
-        padding-left: 150px; /* left col width "#menu" */
-        left: 0;
-    }
-    #menu {
-        left: 150px;
-    }
-
-    .menu-link {
-        position: fixed;
-        left: 150px;
-        display: none;
-    }
-
-    #layout.active .menu-link {
-        left: 150px;
-    }
+section#Log .content li.row:nth-child(even) {
+   background: #ccc;
+}
 
 
+section#Log .content > ul.log-header{
+    background: #c0c0c0;
+    color: #fff;
+ }
 
+ section#Log .content > ul#log-items > li {
+     display: block;
+     width: 100%;
+     height: auto;
+     overflow: auto;
+ }
+ section#Log .content > ul.log-header > li,
+ section#Log .content > ul > li li{
+    display: block;
+    width: 20%;
+    float: left;
+    text-align: center;
+    font-size: .75em;
+}
+
+#Calculator fieldset[id$="-calculations"]{
+ width: 33% !important;
+}
+
+section#Settings {
+    display: none;
 }
 
 @media (max-width: 48em) {
 
-    #layout.active {
-        position: relative;
-        left: 150px;
-    }
 
-       #main section#Calculator {
-        padding-top: 50px;
-    }
-    .content {
+
+    #Calculator fieldset[id$="-calculations"]{
+        display: block;
+        width: 100% !important;
+        text-align: center;
+        border-bottom: 1px solid #ccc !important;
+        margin-bottom: 2px !important;
+        height: auto;
+        overflow: auto;
+       }
+
+
+
+       #Calculator fieldset[id$="-calculations"] legend{
+        display: block;
+        width: 100%;
         padding: 0;
     }
 
