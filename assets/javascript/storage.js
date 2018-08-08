@@ -1,6 +1,6 @@
 logInsulin.onclick = function(){
     addToLog();
-    getLog();
+    showLog();
 };
 
 function addToLog(){
@@ -47,30 +47,78 @@ function currentDateTime(){
 ;}
 
 
-function getLog(){
+function showLog(){
     var localLog = JSON.parse( localStorage.getItem('t1dCalc') ).reverse();
     var logItems = document.getElementById("log-items");
     logItems.innerHTML = "";
     var LogCount = localLog.length;
-    localLog.forEach(function(Logitem, Logindex, array) {
-    var row = document.createElement("li");
-    row.className = "row";
-    var log = document.createElement("ul");
-    var countli = document.createElement("li");
-    countli.innerHTML = LogCount;
-    log.appendChild(countli);
+        localLog.forEach(function(Logitem, Logindex, array) {
 
-        for (var key in Logitem) {
-            if (Logitem.hasOwnProperty(key)) {
-              var li = document.createElement("li");
-              li.clasName = key;  
-              li.innerHTML = Logitem[key];
-              log.appendChild(li);
-            }
+            var row = document.createElement("li");
+            row.className = "row";
+
+            var log = document.createElement("ul");
+
+            var countli = document.createElement("li");
+            countli.innerHTML = LogCount;
+            log.appendChild(countli);
+
+            var deleteItem = document.createElement("a");
+            deleteItem.href = "#";
+            deleteItem.class = "remove-log-item";
+            deleteItem.innerHTML = "X";
+            deleteItem.setAttribute("data-log-id", LogCount-1);
+            deleteItem.className = "deleteItem";
+            
+                for (var key in Logitem) {
+                    if (Logitem.hasOwnProperty(key)) {
+                    var li = document.createElement("li");
+                    li.clasName = key;  
+                    li.innerHTML = Logitem[key];
+
+                    
+                    
+                    
+                    log.appendChild(li);
+                    }
+                }
+                row.appendChild(deleteItem)
+                row.appendChild(log);
+                logItems.appendChild(row);
+                LogCount--;
+        });
+
+        var removeLinks = log.getElementsByClassName("deleteItem");
+   
+        for(var i = 0; i < removeLinks.length; i++)
+        {
+        
+            removeLinks[i].addEventListener('click', function(e){
+                e.preventDefault();
+                removeFromLog(this.getAttribute("data-log-id"));
+    
+            });
+       
         }
-
-        row.appendChild(log);
-        logItems.appendChild(row);
-        LogCount--;
-      });
 }
+
+function removeFromLog(deleteItemID){
+    var localLog = JSON.parse( localStorage.getItem('t1dCalc') );
+    
+    if(deleteItemID){
+        var confirmDelete = confirm("are you sure you want to delete?");
+        if(confirmDelete == true){
+            localLog.splice(deleteItemID, 1);
+            localStorage.setItem('t1dCalc', JSON.stringify(localLog));
+        }
+        
+    }
+    
+    showLog();
+}
+
+
+
+window.addEventListener("load", function() {
+    showLog();
+});

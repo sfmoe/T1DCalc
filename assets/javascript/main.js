@@ -29,7 +29,7 @@ const calculator = document.getElementById('bolus-calculator'),
         /* clear inputs for easier input on mobile */
         carbIntake.addEventListener("focus", clearInput);
         BGL.addEventListener("focus", clearInput);
-        getLog();
+        showLog();
     });
 
 
