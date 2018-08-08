@@ -10,9 +10,9 @@ Logs:
 
 ## RoadMap / ToDo:  
 
-    - A settings section that allows the user to save and update the Carb Ratio, Correction Target, and Correction Factor.
+- A settings section that allows the user to save and update the Carb Ratio, Correction Target, and Correction Factor.
 
 
 ## Screenshot:  
 
-    ![Alt text](screenshot.png?raw=true "Type 1 Diabetes Calculator Screenshot")
+![Alt text](screenshot.png?raw=true "Type 1 Diabetes Calculator Screenshot")
