@@ -165,7 +165,9 @@ input::-moz-selection {
 }
 
 /*calculator styles*/
-
+#Calculator .header table tr th, #Calculator .header table tr td{
+    text-align: center;
+}
 #Calculator div#bolus-calculator{
     display: block;
     width: 100%;
