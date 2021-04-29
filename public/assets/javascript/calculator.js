@@ -1,3 +1,4 @@
+
 calculateInsulinBolus.onclick = function(){
     var cbt = (parseFloat(Number(carbIntake.value)) / parseFloat(Number(carbRatio.value))).toFixed(2);
     CarbBolusTotal.value = cbt;

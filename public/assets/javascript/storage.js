@@ -1,3 +1,4 @@
+
 logInsulin.onclick = function(){
     addToLog();
     showLog();
