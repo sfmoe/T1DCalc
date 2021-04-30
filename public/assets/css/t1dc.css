@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body,
 input {
     color: #777;
@@ -206,7 +209,7 @@ input::-moz-selection {
 }
 
 
-#BolusCalculator button {
+#BolusCalculator button, #BolusCalculator .button {
     display: block;
     clear:both;
 }
@@ -229,12 +232,15 @@ input::-moz-selection {
 }
 .button-container{
     margin-top: 20px;
+    display: flex;
+
 }
 .button-container.center{
     text-align: center;   
+    justify-content: center;
 }
 
-button {
+button, .button {
     display: inline-block;
     border: 0;
     background: linear-gradient(0, #1f8dd6, #1d6ad6);
@@ -242,6 +248,9 @@ button {
     padding: 20px;
     border-radius: 10px;
     font-size: 1.4em;
+    text-decoration: none;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 span#insulin-bolus-total {
