@@ -1,21 +1,22 @@
 import React from "react";
 
 import Calculator from './components/Calculator';
+import Menu from './components/Menu';
+
 // import Log from './components/Log';
-// import Settings from './components/Settings';
+
 
 
 class App extends React.Component {
 
 
-  
+
   render() {
   return (
     <div id="main">
-          
+          <Menu />
           <Calculator />
-          {/* <Log />
-          <Settings /> */}
+          {/* <Log /> */}
   {/* <h1>{this.state.correctionTarget}</h1> */}
     </div>
   

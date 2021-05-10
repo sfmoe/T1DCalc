@@ -1,6 +1,7 @@
 import React from "react";
 
 
+
 class Calculator extends React.Component{
 
 
@@ -8,27 +9,29 @@ class Calculator extends React.Component{
     super(props);
 
     this.state = {
-         correctionAmount: 0,
-         correctionTarget: process.env.REACT_APP_CORRECTION_TARGET, // to do: change this to get from user settings
-         correctionFactor: process.env.REACT_APP_CORRECTION_FACTOR, // to do: change this to get from user settings
-         correctionBolusTotal: 0,
-         carbRatio:  process.env.REACT_APP_CARB_RATIO,
-         carbBolusTotal: 0,
-         currentCarb: 0,
-         currentBG: 0,
-         totalBolus: 0,
-         totalBolusRound: 0
+        correctionTarget: process.env.REACT_APP_CORRECTION_TARGET, // to do: change this to get from user settings
+        correctionFactor: process.env.REACT_APP_CORRECTION_FACTOR, // to do: change this to get from user settings
+        carbRatio:  process.env.REACT_APP_CARB_RATIO,// to do: change this to get from user settings
+        correctionAmount: 0,
+        correctionBolusTotal: 0,
+        currentCarb: 0,
+        currentBG: 0,
+        totalBolus: 0,
+        carbBolusTotal: 0,
+        totalBolusRound: 0
       };
       
-      this.carbinputEl = React.createRef();
-      this.carbRatioEl = React.createRef();
-      this.bglevelEL = React.createRef();
-      this.calculateCarbBolus = this.calculateCarbBolus.bind(this);
-      this.calculateBolus = this.calculateBolus.bind(this);
-      this.calculateCorrection = this.calculateCorrection.bind(this);
-      this.rawBolus = this.rawBolus.bind(this);
+    this.carbinputEl = React.createRef();
+    this.carbRatioEl = React.createRef();
+    this.bglevelEL = React.createRef();
 
+    this.calculateCarbBolus = this.calculateCarbBolus.bind(this);
+    this.calculateBolus = this.calculateBolus.bind(this);
+    this.calculateCorrection = this.calculateCorrection.bind(this);
+    this.rawBolus = this.rawBolus.bind(this);
     }
+
+
 
     calculateCarbBolus(){
         this.setState({
@@ -136,7 +139,7 @@ class Calculator extends React.Component{
                     
                     <div className="button-container center">
                     <button id="calculate-insulin-bolus" className="button">Calculate</button>
-                    <a href="#log" className="button" id="log-insulin-bolus-results">Log Insulin Bolus</a>
+                    <a href="#log" className="button" id="log-insulin-bolus-results" onClick={(event)=>{event.preventDefault();}}>Log Insulin Bolus</a>
                     </div>
                     <hr/>
                 </fieldset>
