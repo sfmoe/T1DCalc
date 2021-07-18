@@ -9,6 +9,8 @@ input {
 
 body {
     background: #eee;
+    margin: 0;
+    padding: 0;
 }
 
 input::selection,
@@ -34,8 +36,7 @@ input::-moz-selection {
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 150px;
-        width: 150px;
+        left: 200px;
     }
 
 .content {
@@ -49,8 +50,8 @@ input::-moz-selection {
 }
 
 #menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    margin-left: -200px; /* "#menu" width */
+    width: 200px;
     position: fixed;
     top: 0;
     left: 0;
@@ -99,10 +100,13 @@ input::-moz-selection {
 
 
     #menu .menu-heading {
-        font-size: 110%;
+        font-size: 1.5rem;
         color: #fff;
         margin: 0;
-        max-width: 150px;
+        width:100%;
+        text-align: center;
+        padding: 10px;
+        min-height: 50px;
     }
     #menu .inner-menu > a,
     #menu .inner-menu > ul  {
@@ -120,19 +124,23 @@ input::-moz-selection {
     position: absolute;
     display: block; /* show this only on small screens */
     top: 0;
-    right: 0; /* "#menu width" */
-    background: #000;
+    left: 0; /* "#menu width" */
     background: rgba(0,0,0,0.7);
     font-size: 10px; /* change this value to increase/decrease button size */
     z-index: 10;
     width: 2em;
-    height: auto;
+    height: 50px;
+    line-height: 50px;
     padding: 0;
     color: #fff;
     text-decoration: none;
     font-size: 1.5rem;
     text-align: center;
     
+}
+#layout  .menu-link.active {
+    left: 192px;
+    background: #191818;
 }
 
 #layout .menu-link span {
@@ -144,6 +152,10 @@ input::-moz-selection {
     content:'\2630'; 
 }
 
+#layout .menu-link.active:before { 
+    content:'\2717'; 
+}
+
 #layout >  .menu-link:hover,
     .menu-link:focus {
         background: #000;
@@ -152,6 +164,8 @@ input::-moz-selection {
 #main {
     max-width : 1024px;
     margin: 0 auto;
+    padding: 0;
+    overflow: auto;
 }
 
 /*calculator styles*/

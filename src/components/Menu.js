@@ -1,41 +1,34 @@
 
-import React from "react";
+import  React, {useState} from "react";
 
-class Menu extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            menuActive: false
-        }
+const Menu = () => {
 
-        this.toggleMenu = this.toggleMenu.bind(this);
+    const [menuActive, menuToggled] = useState(false);
 
+    const toggleMenu = (e) =>{
+        e.preventDefault();
+        e.target.classList.toggle("active");
+        let layout = document.getElementById("layout");
+        menuToggled(!menuActive);  
+        layout.classList.toggle("active");      
+        console.log(process.env.REACT_APP_LOGIN)
     };
 
-    toggleMenu(event){
-        event.preventDefault();
-
-        this.setState({ menuActive: !this.state.menuActive });  
-        const layout = document.getElementById("layout");
-        !this.state.menuActive ? layout.classList.add("active") : layout.classList.remove("active") ;
-        
-    };
- render() {
     return (
         <>
-        <a href="#menu" onClick={this.toggleMenu} className="menu-link" alt="open menu"><span>Menu</span></a>
+        <a href="#menu" onClick={toggleMenu} className="menu-link" alt="open menu"><span>Menu</span></a>
         <section id="menu">
         <div className="header">
-            <h1>Menu</h1>
+            <h1 className="menu-heading">Menu</h1>
         </div>
         <div className="content">
-           <ul>
-               <li><a href={'#login'}>Log In</a></li>
+            <ul>
+            <li><a href='#login' style={{display: 'none'}}>Logs In</a></li> 
            </ul>
         </div>
     </section>
     </>
-    )}
+    );
   }
   
   export default Menu;

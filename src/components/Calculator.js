@@ -52,7 +52,7 @@ class Calculator extends React.Component{
         let correctionBolus = (
             correction / parseFloat(Number(this.state.correctionFactor))
         ).toFixed(2);
-
+            correctionBolus = (correctionBolus <= 0)? 0 : correctionBolus;
         this.setState({
             currentBG: this.bglevelEL.current.value,
             correctionAmount: correction,

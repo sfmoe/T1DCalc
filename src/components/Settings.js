@@ -1,6 +1,6 @@
 
 
-function Settings() {
+const Settings = ()=>{
     return (
         <section id="Settings">
         <div className="header">
